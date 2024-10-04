@@ -9,24 +9,6 @@
 
 #include "kmc.h"
 #include "kmc_utilities.h"
-/**
- * First, we provide a list of our species names:
- * 
- * ["A", "B", "C"]
- * 
- * Next, define the reactions that can occur. A reaction is given by
- * two vectors of length num_species.
- * 
- * For example, to encode the reaction
- * 
- * A + 2B -> C
- * 
- * We can use the vector representation for the reactants:
- * 
- * std::vector<float> reactants {1, 2, 0}
- * std::vector<float> products {0, 0, 1}
- * 
- */
 
 KMC::KMC(const std::vector<std::string>& speciesNames,
          const std::vector<int>& particleCounts)
@@ -49,6 +31,7 @@ void KMC::addReaction(const Reaction& reaction) {
 };
 
 ReactionResult KMC::run(float duration) {
+    /******* ENTRYPOINT FOR SIMULATION RUN *******/
     // We will accumulate the time points here
     std::vector<float> times {0};
     // And the counts as the species react here
