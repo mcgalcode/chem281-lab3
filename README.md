@@ -103,7 +103,7 @@ What if you add more species?
 What happens if you add reactions such that there are intermediate steps between the intial and final products?
 Can you produce any oscillatory behavior?
 
-### 4. Parallelism
+## 4. Parallelism
 
 You might notice that your simulation results are quite noisy. Typically people run many kMC trajectories and average them to get their results. Try changing `main.cpp` so that MPI (which is already in your dev container) is used to run several trajectories in parallel.
 
