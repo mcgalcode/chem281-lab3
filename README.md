@@ -87,6 +87,25 @@ A + B -> 2C, k = 0.05
 
 The first parameter, `{1, 1, 0}` refers to the reactants. This means that this reaction consumes 1 A and 1 B particle and 0 C particles. Similarly, it produces 2 C particles, and its rate is 0.05.
 
+Using this knowledge of the data structures involved, try to fix the tests by implementing the methods in `kmc_utilities.cpp`.
 
-## 3. 
+## 3. Try to run the simulation
+
+Once the tests are passing again, try compiling the code and running the `Main` executable. It should generate a file called `out.json`. This file contains the output of your simulation.
+
+To inspect the contents of the file, use the `visualize.ipynb` and jupyter notebook on your host machine (ignoring the development container). That notebook has code that will read the `out.json` file, and plot the trajectories of each of the particle types over the course of your simulation.
+
+Experiment with the simulation parameters in `main.cpp`. Try adding more reactions, and changing the reaction rates and simulation time.
+
+What happens if you add the reverse reaction?
+How does the ratio of thew rate constants of the forward and backward reactions affect the simulation results?
+What if you add more species?
+What happens if you add reactions such that there are intermediate steps between the intial and final products?
+Can you produce any oscillatory behavior?
+
+### 4. Parallelism
+
+You might notice that your simulation results are quite noisy. Typically people run many kMC trajectories and average them to get their results. Try changing `main.cpp` so that MPI (which is already in your dev container) is used to run several trajectories in parallel.
+
+How can you combine the results at the end? You might need to change more code than is marked, or change the python notebook to handle combining multiple output files.
 
