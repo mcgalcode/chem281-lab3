@@ -20,6 +20,7 @@ int nChooseK(int n, int k) {
 
 float calculateReactionPropensity(std::vector<int>& specieCounts, Reaction reaction) {
     /*
+    * BROKEN -- CHANGE ME -- BROKEN
     * This function should calculate the "propensity", or likelihood of
     * the reaction occuring. It combines the number of each species, and the rate of the reaction
     * This value is computed by finding the number of possible combinations of each reactant particle
@@ -47,16 +48,7 @@ float calculateReactionPropensity(std::vector<int>& specieCounts, Reaction react
     * 
     * Use the nChooseK helper function!
     */
-    float propensity = reaction.rate;
-    std::vector<int> reactants = reaction.reactants;
-    for (int i = 0; i < reactants.size(); i++) {
-        int particlesInReaction = reactants[i];
-        if (particlesInReaction != 0) {
-            int count = specieCounts[i];
-            propensity *= nChooseK(count, particlesInReaction);
-        }
-    }
-    return propensity;
+    return reaction.rate;
 };
 
 double randomDouble(double min, double max) {
@@ -68,24 +60,17 @@ double randomDouble(double min, double max) {
 };
 
 std::vector<int> computeNewSpecieCounts(const std::vector<int>& oldSpecieCounts, Reaction reaction) {
+    // BROKEN -- CHANGE ME -- BROKEN
     // Given a reaction and the current species counts, this function should return
     // the new specie counts after the reaction happens once
-    
-    int numSpecies = oldSpecieCounts.size();
-    std::vector<int> newSpecieCounts{};
-
-    for (int i = 0; i < numSpecies; i++) {
-        int specieCount = oldSpecieCounts[i] - reaction.reactants[i] + reaction.products[i];
-        newSpecieCounts.push_back(specieCount);
-    }
-
-    return newSpecieCounts;
+    return oldSpecieCounts;
 };
 
 float computeTimeInterval(float alpha0, float tau) {
+    // BROKEN -- CHANGE ME -- BROKEN
     // This function should compute the time interval per
     // Eqn. 21a in the Gillespie paper
-    return 1 / alpha0 * log(1 / tau);
+    return 1;
 }
 
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(ReactionResult, amounts, times, specieNames)
