@@ -85,7 +85,7 @@ std::vector<int> computeNewSpecieCounts(const std::vector<int>& oldSpecieCounts,
 float computeTimeInterval(float alpha0, float tau) {
     // This function should compute the time interval per
     // Eqn. 21a in the Gillespie paper
-    return 1 / totalPropensity * log(1 / tau);
+    return 1 / alpha0 * log(1 / tau);
 }
 
 NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(ReactionResult, amounts, times, specieNames)

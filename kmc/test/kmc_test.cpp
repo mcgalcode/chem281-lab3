@@ -82,7 +82,9 @@ TEST(KMCUtilities, computeNewSpecieCounts) {
 }
 
 TEST(KMCUtilities, computeTimeInterval) {
-
+  float propTotal = 5;
+  float tau = 0.2;
+  EXPECT_NEAR(computeTimeInterval(propTotal, tau), 0.3218875825, 0.000001);
 }
 
 TEST(KMCUtilities, jsonWriting) {
